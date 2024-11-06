@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+/* Art Container for abstract objects */
+.art-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+/* Fun shapes */
+.rectangle {
+  background: #ff6b6b;
+  grid-column: 1 / span 2;
+  height: 100px;
+  z-index: 1;
+  transform: rotate(29deg);
+}
+
+.circle {
+  background: #4ecdc4;
+  border-radius: 50%;
+  width: 100px;
+  height: 200px;
+  position: relative;
+  z-index: 3;
+  margin-top: -35px;
+  grid-column: 2 / 3;
+  align-self: center;
+  justify-self: end;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px dashed;
+  border-bottom: 100px solid #227297;
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  z-index: 2;
+}
+
+.small-square {
+  background: #ff6b6b;
+  width: 60px;
+  height: 60px;
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+}
+
+.large-square {
+  background: #1a535c;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+}
+
+/* Overlay for blending effect of art objects (googled this and wanted to try) */
+.overlay {
+  background: rgba(255, 255, 255, 0.2);
+  grid-column: 1 / -1;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Form Styling */
+.form-section {
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+label {
+  font-size: 1em;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 8px;
+  width: 80%;
+  max-width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive Design/Media Queries for rescaling depending on the device the site is being accessed from, testing shows that it works! :D */
+@media (max-width: 1024px) {
+  .art-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-container {
+    grid-template-columns: repeat(2, 1fr);
+    height: 300px;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .rectangle {
+    height: 120px;
+  }
+}
